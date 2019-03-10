@@ -1,0 +1,48 @@
+extends layout
+
+block body-content
+  section.body-content.mb-5
+    // Banner
+    .banner.mb-3
+      img(src='/images/banner.jpg', alt='banner')
+    .container
+      // BestSeller
+      .bestseller
+        h1.text-center
+          span Bestsellers
+        h6.mb-5.text-center(style='color:gray') Bestseller on website
+      // Hot Products
+      .hot-product-wrap
+        .row
+          each product in listProducts
+            .col-md-3.col-6
+              .product
+                .product-img
+                  img(src=product.img, alt='')
+                .product-info.text-center
+                  span.product-name.medium-text= product.name
+                  span.product-price.mb-2= product.price
+                  .btn-group
+                    a.btn.btn-secondary Xem
+                    a(href='/cart/add/'+product.id).btn.btn-secondary Mua      
+      // Ads
+      .ads.mt-5.mb-5
+        .slogan
+          .outer
+            .inner
+              .content.text-center
+                h2 FREE SHIPPING
+                p Miễn phí vận chuyển tất cả các đơn hàng
+                a(href='') GET A BOOK
+      // Banner small
+      .row
+        .col
+          .banner-small
+            img(src='/images/test-product/2.jpg', alt='')
+        .col
+          .banner-small
+            img(src='/images/test-product/2.jpg', alt='')
+        .col
+          .banner-small
+            img(src='/images/test-product/2.jpg', alt='')
+

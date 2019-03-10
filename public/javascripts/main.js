@@ -3,18 +3,18 @@
 /*==============================================[ Show side menu ]==*/
 
 
-$('.show-side-menu').on('click',() =>{
+$('.show-side-menu').on('click',function(){
   $('.restyle-home-outgrid .wrap-vertcal-menu').css('right','0px');
 });
 
-$('.hide-side-menu').on('click',() =>{
+$('.hide-side-menu').on('click',function(){
   $('.restyle-home-outgrid .wrap-vertcal-menu').css('right','-16%');
 });
 
 
 
 /*==============================================[ dropdown menu ]==*/
-$('.btn-show-menu-mobile').on('click', () =>{
+$('.btn-show-menu-mobile').on('click', function(){
   $(this).toggleClass('is-active');
   $('.wrap-side-menu').slideToggle();
 });
@@ -22,13 +22,13 @@ $('.btn-show-menu-mobile').on('click', () =>{
 let arrowMainMenu = $('.arrow-main-menu');
 
 for(let i=0; i<arrowMainMenu.length; i++){
-  $(arrowMainMenu[i]).on('click', () =>{
+  $(arrowMainMenu[i]).on('click', function(){
     $(this).next('.sub-menu').slideToggle();
     $(this).toggleClass('turn-arrow');
   })
 }
 
-$(window).resize(() =>{
+$(window).resize(function(){
   if($(window).width() >= 1100){
     if($('.wrap-side-menu').css('display') == 'block'){
       $('.wrap-side-menu').css('display','none');
@@ -41,6 +41,24 @@ $(window).resize(() =>{
   }
 });
 
+/*==============================================[ add to cart ]==*/
+
+let getData = async id => {
+  try {
+    let url = '/api/carts/'+id;
+    let data = await axios.get(url);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+$('.btn-addtocart').on('click', function(){
+  $('.count-pro').css('display','block');
+  let id = this.getAttribute("data-id");
+  getData(id).then(data => console.log(data));
+  
+});
 
 })
 (jQuery);

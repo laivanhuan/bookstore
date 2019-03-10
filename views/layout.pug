@@ -41,8 +41,7 @@ body
             li#shopping-cart
               a(href='#')
                 img(alt='logo', src='/images/icons/shopping-bag.svg')
-              if countPro
-                span.count-pro
+              span.count-pro
               ul.sub_menu.bg-light.border.rounded-bottom(style='border-color: #C8BCA7; width: 300px;')
                 li
                   .list-product
@@ -59,8 +58,7 @@ body
         button.btn-show-menu-mobile.hamburger.hamburger--squeeze(type='button')
           span.hamburger-box
             span.hamburger-inner
-        if countPro
-          span.count-pro
+        span.count-pro
     // Menu Mobile
     .wrap-side-menu
       nav.side-menu
@@ -85,8 +83,7 @@ body
             a(href='#') Liên hệ
           li
             a(href='#') Check out
-            if countPro
-              span.count-pro(style='width: 10px; height:10px; border-radius:50%; background-color:red; display: inline-block;')
+            span.count-pro(style='width: 10px; height:10px; border-radius:50%; background-color:red; display: inline-block;')
   // Body Content
   block body-content
 
@@ -153,3 +150,4 @@ body
   script(src='/javascripts/jquery-3.2.1.min.js')
   script(src='/javascripts/bootstrap.min.js')
   script(src='/javascripts/main.js')
+  script(src='https://unpkg.com/axios/dist/axios.min.js')

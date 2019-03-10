@@ -6,8 +6,8 @@ const bodyParser = require('body-parser');
 const logger = require('morgan');
 
 const indexRouter = require('./routes/index.route');
-const cartRouter = require('./routes/cart.route');
 
+const apiCartRouter = require('./api/routes/cart.route');
 const apiProductRouter = require('./api/routes/product.route');
 
 const sessionMiddleware = require('./middlewares/session.middleware');
@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 app.use(sessionMiddleware);
 
 app.use('/', indexRouter);
-app.use('/cart', cartRouter);
+app.use('/api/carts', apiCartRouter); //wtf???
 app.use('/api/products', apiProductRouter);
 
 // catch 404 and forward to error handler

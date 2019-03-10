@@ -24,7 +24,7 @@ block body-content
                   span.product-price.mb-2= product.price
                   .btn-group
                     a.btn.btn-secondary Xem
-                    a(href='/cart/add/'+product.id).btn.btn-secondary Mua      
+                    a(data-id= product.id).btn.btn-secondary.btn-addtocart Mua      
       // Ads
       .ads.mt-5.mb-5
         .slogan

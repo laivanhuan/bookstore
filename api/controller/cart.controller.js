@@ -1,4 +1,6 @@
 const Cart = require('../../models/cart');
+const Product = require('../../models/product');
+const Op = require('../../db').Op;
 
 module.exports = {
     addToCart: async (req, res, next) =>{
@@ -33,12 +35,21 @@ module.exports = {
                 // })
             }
 
-            let products = await Cart.findAll({
+            let cart = await Cart.findAll({
                 where: {
                     sessionId: sessionId
                 },
             });
 
+            let productIds = cart.map(i => {return i.productId});
+
+            let products = await Product.findAll({
+                where: {
+                    id: {
+                        [Op.or]: productIds
+                    }
+                }
+            });
             res.json(products);
         } catch (error) {
             res.json({

@@ -4,10 +4,8 @@ head
   meta(name='viewport', content='width=device-width, initial-scale=1.0')
   meta(http-equiv='X-UA-Compatible', content='ie=edge')
   title Trang chủ
-  link(rel='stylesheet', type='text/css', href='/stylesheets/font-awesome.min.css')
-  link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
-  link(rel='stylesheet', href='/stylesheets/hamburgers.min.css')
-  link(rel='stylesheet', href='/stylesheets/main.css')
+  block styles
+
 body
   header
     // Header desktop
@@ -41,10 +39,21 @@ body
             li#shopping-cart
               a(href='#')
                 img(alt='logo', src='/images/icons/shopping-bag.svg')
-              span.count-pro
+              if products
+                span.count-pro(style="display:block!important;")
+              else
+                span.count-pro
               ul.sub_menu.bg-light.border.rounded-bottom(style='border-color: #C8BCA7; width: 300px;')
                 li
                   .list-product
+                    if products
+                      each item in products
+                        .item
+                          .item-img
+                            img(src= item.img)
+                          .item-info
+                            span.item-name= item.name
+                            span.item-price= item.price
                 li
                   .btn.btn-danger(style='margin:0 auto;') Check out
     // Header Mobile
@@ -58,7 +67,10 @@ body
         button.btn-show-menu-mobile.hamburger.hamburger--squeeze(type='button')
           span.hamburger-box
             span.hamburger-inner
-        span.count-pro
+        if products
+          span.count-pro(style="display:block!important;")
+        else
+          span.count-pro
     // Menu Mobile
     .wrap-side-menu
       nav.side-menu
@@ -83,7 +95,10 @@ body
             a(href='#') Liên hệ
           li
             a(href='#') Check out
-            span.count-pro(style='width: 10px; height:10px; border-radius:50%; background-color:red; display: inline-block;')
+            if produtcs
+              span.count-pro(style='width: 10px; height:10px; border-radius:50%; background-color:red; display: inline-block!important;')
+            else
+              span.count-pro(style='width: 10px; height:10px; border-radius:50%; background-color:red; display: inline-block;')
   // Body Content
   block body-content
 

@@ -53,10 +53,18 @@ let getData = async id => {
   }
 }
 
+let renderCart = (listProducts) =>{
+  let arrProducts = listProducts.map(i =>{
+    return '<div class="item"><div class="item-img"><img src="'+i.img+'"></div><div class="item-info"><span class="item-name">'+i.name+'</span><span class="item-price">'+i.price+'</span></div></div>';
+  });
+  let strHTML = arrProducts.join('');
+  $('.list-product').html(strHTML);
+}
+
 $('.btn-addtocart').on('click', function(){
-  $('.count-pro').css('display','block');
+  $('.count-pro').css('display','inline-block');
   let id = this.getAttribute("data-id");
-  getData(id).then(data => console.log(data));
+  getData(id).then(data => renderCart(data.data));
   
 });
 

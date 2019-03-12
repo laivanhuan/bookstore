@@ -12,7 +12,8 @@ const product = db.define('product',{
     name: sequelize.STRING,
     description: sequelize.TEXT,
     img: sequelize.STRING,
-    price: sequelize.INTEGER
+    price: sequelize.INTEGER,
+    type: sequelize.INTEGER
 },{
   //don't add the timestamp attribute
   timestamps: false

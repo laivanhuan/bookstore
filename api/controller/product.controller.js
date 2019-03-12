@@ -2,16 +2,17 @@ const Product = require('../../models/product');
 
 module.exports = {
     createProduct: async (req, res, next) => {
-        let { name, description, img, price } = req.body;
-        console.log({ name, description, img, price })
+        let { name, description, img, price, type } = req.body;
+        console.log({ name, description, img, price, type })
         try {
             let newProduct = await Product.create({
                 name,
                 description,
                 img,
-                price: parseInt(price)
+                price: parseInt(price),
+                type: parseInt(type)
             },{
-                fields: ["name","description", "img", "price"]
+                fields: ["name","description", "img", "price", "type"]
             })
 
             if(newProduct){

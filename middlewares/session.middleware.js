@@ -30,7 +30,7 @@ module.exports = async (req, res, next) => {
 				}
 			}
 		});
-		res.locals.products = products;
+		res.locals.cartProducts = products;
 	}
 	next();
 }

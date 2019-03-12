@@ -6,38 +6,7 @@
 .banner img{
 	width: 100%;
 }
-/* ****************Product ************/
-.product{
-	width: 200px;
-	margin: 0 20px 20px 0;
-	padding: 10px;
-}
-.product-img img{
-	width: 100%;
-}
-.product-name{
-	color: #333333;
-	display: block;
-	white-space: nowrap; 
-	text-overflow: ellipsis; 
-	width: 100%;
-	overflow: hidden;
-}
-.product-price{
-	display: block;
-	color:red;
-	font-size: 1.2rem;
-}
-.btn-group{
-	display: flex;
-}
-.btn-group .btn:nth-child(1){
-	margin-right: 10px;
-}
-.btn-group a{
-	color: #fff!important;
-	cursor: pointer;
-}
+
 
 /* *************Ads *************/
 .ads .outer{

@@ -1,0 +1,71 @@
+/* ****************Product ************/
+.product{
+	width: 200px;
+	margin: 0 20px 30px 0;
+	padding: 10px;
+}
+.product-img img{
+	width: 100%;
+}
+.product-name{
+	color: #333333;
+	display: block;
+	white-space: nowrap; 
+	text-overflow: ellipsis; 
+	width: 100%;
+	overflow: hidden;
+}
+.product-price{
+	display: block;
+	color:red;
+	font-size: 1.2rem;
+}
+.btn-group{
+	display: flex;
+}
+.btn-group .btn:nth-child(1){
+	margin-right: 10px;
+}
+.btn-group a{
+	color: #fff!important;
+	cursor: pointer;
+}
+.box-product{
+	display: flex;
+	justify-content: center;
+}
+
+.sologan{
+	width: 45%;
+	min-width: 350px;
+	box-shadow: 0px 0px 3px #7d7777;
+	margin-top: 20px;
+	border-radius: 15px;
+}
+.sologan p{
+	font-size: 20px;
+	font-weight: bold;
+	color: chocolate;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0!important;
+	padding: 15px 0; 
+}
+.box-sologan h3{
+	color: #ff722c;
+	text-align: center;
+	font-size: 2.3rem;
+	font-weight: bold;
+	position: relative;
+	padding-bottom: 10px;
+}
+.box-sologan h3::after{
+	border-bottom: 5px solid red;
+	width: 50px;
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%)
+}

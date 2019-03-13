@@ -12,23 +12,23 @@ body
     #wrap_header
       // Logo
       .logo
-        a(href='index.html')
+        a(href='/')
           img(alt='logo', src='/images/logobookstore.png')
       // Menu
       .main_nav
         nav.menu
           ul.main_menu
             li
-              a(href='#') Trang chủ
+              a(href='/') Trang chủ
             li
               a(href='/products') Danh sách sản phẩm
               ul.sub_menu
                 li
-                  a(href='/products?type=1') Sách thiếu nhi
+                  a(href='/products/find?type=1') Sách thiếu nhi
                 li
-                  a(href='/products?type=2') Sách đời sống
+                  a(href='/products/find?type=2') Sách đời sống
                 li
-                  a(href='/products?type=3') Sách doanh nhân
+                  a(href='/products/find?type=3') Sách doanh nhân
                 li
                   a(href='#') Khác
             li

@@ -10,5 +10,22 @@ module.exports = {
     }catch(error){
       console.log(error.message);
     }
+  },
+
+  getProductByType: async (req, res, next) =>{
+    try {
+      let type = req.query.type;
+      let listProducts = await Product.findAll(
+        {
+          where: {
+            type: parseInt(type)
+          }
+        });
+      res.render('product',{
+        listProducts: listProducts
+      })
+    } catch (error) {
+      console.log(error.message);
+    }
   }
 }

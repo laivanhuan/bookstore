@@ -1,0 +1,31 @@
+.product-img img{
+  width: 100%;
+  max-width: 300px;
+}
+.product-name{
+  font-weight: bold;
+  color: orange;
+  margin-bottom: 20px;
+}
+.product-description{
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 15px;
+}
+.product-price{
+  margin-bottom: 20px;
+}
+.product-price >span{
+  font-weight: bold;
+  display: inline-block;
+  margin-right: 15px;
+  font-size: 18px;
+}
+.product-price .price{
+  color: red;
+  font-size: 23px;
+}
+.product-info a{
+  color: #fff!important;
+  padding: 10px 35px;
+}

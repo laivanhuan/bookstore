@@ -31,7 +31,7 @@ block body-content
                   span.product-name.medium-text= product.name
                   span.product-price.mb-2= product.price
                   .btn-group
-                    a.btn.btn-secondary Xem
+                    a.btn.btn-secondary(href= '/products/view/'+product.id) Xem
                     a(data-id= product.id).btn.btn-secondary.btn-addtocart Mua      
       // Ads
       .ads.mt-5.mb-5

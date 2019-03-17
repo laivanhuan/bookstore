@@ -39,14 +39,14 @@ body
             li#shopping-cart
               a(href='#')
                 img(alt='logo', src='/images/icons/shopping-bag.svg')
-              if products
+              if products&&products.length
                 span.count-pro(style="display:block!important;")
               else
                 span.count-pro
               ul.sub_menu.bg-light.border.rounded-bottom(style='border-color: #C8BCA7; width: 300px;')
                 li
                   .list-product
-                    if products
+                    if products&&products.length
                       each item in products
                         .item
                           .item-img
@@ -67,10 +67,10 @@ body
         button.btn-show-menu-mobile.hamburger.hamburger--squeeze(type='button')
           span.hamburger-box
             span.hamburger-inner
-        if products
+        if products&&products.length
           span.count-pro(style="display:block!important;")
         else
-          span.count-pro
+          span.count-pro(style="display:none;")
     // Menu Mobile
     .wrap-side-menu
       nav.side-menu
@@ -95,10 +95,10 @@ body
             a(href='#') Liên hệ
           li
             a(href='#') Check out
-            if produtcs
+            if products&&products.length
               span.count-pro(style='width: 10px; height:10px; border-radius:50%; background-color:red; display: inline-block!important;')
             else
-              span.count-pro(style='width: 10px; height:10px; border-radius:50%; background-color:red; display: inline-block;')
+              span.count-pro(style='width: 10px; height:10px; border-radius:50%; background-color:red;')
   // Body Content
   block body-content
 

@@ -13,7 +13,7 @@ module.exports = async (req, res, next) => {
 
 		Session.create({
             id: sessionId
-        });
+				});
 	}else{
 		let cart = await Cart.findAll({
 			where: {
@@ -23,13 +23,17 @@ module.exports = async (req, res, next) => {
 
 		let productIds = cart.map(i => {return i.productId});
 
-		let products = await Product.findAll({
-			where: {
-				id: {
-					[Op.or]: productIds
+		let products =[];
+		
+		if (productIds.length) {
+			products = await Product.findAll({
+				where: {
+					id: {
+						[Op.or]: productIds
+					}
 				}
-			}
-		});
+			});
+		}
 		res.locals.cartProducts = products;
 	}
 	next();

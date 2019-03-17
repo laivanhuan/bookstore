@@ -22,10 +22,29 @@ module.exports = {
           }
         });
       res.render('product',{
-        listProducts: listProducts
+        listProducts: listProducts,
+        products: res.locals.cartProducts
       })
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
+    }
+  },
+
+  viewProduct: async (req, res, next) => {
+    try {
+      let productId = req.params.id;
+      let product = await Product.findAll({
+        where: {
+          id: productId
+        }
+      });
+      console.log(product);
+      res.render('view',{
+        product: product[0],
+        products: res.locals.cartProducts
+      })
+    } catch (error) {
+      console.log(error);
     }
   }
 }

@@ -1,0 +1,22 @@
+extends layout
+block styles
+  link(rel='stylesheet', type='text/css', href='/stylesheets/font-awesome.min.css')
+  link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+  link(rel='stylesheet', href='/stylesheets/hamburgers.min.css')
+  link(rel='stylesheet', href='/stylesheets/main.css')
+  link(rel="stylesheet", href="/stylesheets/view.css")
+block body-content
+  section(style = "padding-top:100px;")
+    .container
+      .box-view.row.mt-5.mb-5
+        .col-md-4.col-sm-4.text-center
+          img(src=product.img, alt='')
+        .col-md-6.col-sm-6
+          .box-view-info
+            h3.product-name= product.name
+            .product-info
+              .product-description= product.description
+              .product-price
+                span Giá : 
+                span.price= product.price
+              a(data-id= product.id).btn.btn-primary.btn-addtocart Mua

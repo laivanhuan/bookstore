@@ -17,6 +17,7 @@ block body-content
                   th(scope='col') Tên sách
                   th(scope='col') Số lượng
                   th(scope='col') Giá
+                  th(scope='col') #
               tbody
                 each item in products
                   tr
@@ -27,6 +28,8 @@ block body-content
                       input.pro-number(type="number", value="1", style="padding-left: 10px; width: 65px")
                     td.label-price
                       p(data-price= item.price)= item.price
+                    td
+                      i.fa.fa-trash-o.btn-delete(data-id= item.id, style="color: red;font-size: 22px;cursor:pointer;")
           .col-md-12
             h3.mb-4.mt-5 Thông tin khách hàng
             .form-row

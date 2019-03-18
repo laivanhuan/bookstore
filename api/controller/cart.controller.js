@@ -8,8 +8,6 @@ module.exports = {
             let sessionId = req.signedCookies.sessionId;
             let productId = req.params.productId;
 
-            console.log({sessionId, productId});
-
             let product = await Cart.findAll({
                 where: {
                     sessionId: sessionId,
@@ -23,16 +21,6 @@ module.exports = {
                     productId,
                     countProduct: 1
                 });
-            }else{
-                // await Cart.update({
-                //     countProduct: product.countProduct + 1
-                // },
-                // {
-                //     where: {
-                //         sessionId: sessionId,
-                //         productId: productId
-                //     }
-                // })
             }
 
             let cart = await Cart.findAll({
@@ -69,6 +57,45 @@ module.exports = {
                 },
             });
 
+            res.json(products);
+        } catch (error) {
+            res.json({
+                message: 'Failed',
+                error: error
+            });
+        }
+    },
+
+    deleteCart: async (req, res, next) =>{
+        try {
+            let sessionId = req.signedCookies.sessionId;
+            let id = req.params.id;
+            await Cart.destroy({
+                where: {
+                    sessionId: sessionId,
+                    productId: id
+                }
+            });
+
+            let cart = await Cart.findAll({
+                where: {
+                    sessionId: sessionId
+                },
+            });
+
+            let productIds = cart.map(i => {return i.productId});
+
+            let products =[];
+		
+            if (productIds.length) {
+                products = await Product.findAll({
+                    where: {
+                        id: {
+                            [Op.or]: productIds
+                        }
+                    }
+                });
+            }
             res.json(products);
         } catch (error) {
             res.json({

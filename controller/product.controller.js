@@ -5,7 +5,8 @@ module.exports = {
     try{
       let listProducts = await Product.findAll({limit:12});
       res.render('product',{
-        listProducts: listProducts
+        listProducts: listProducts,
+        products: res.locals.cartProducts
       })
     }catch(error){
       console.log(error.message);

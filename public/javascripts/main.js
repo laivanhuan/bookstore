@@ -58,6 +58,9 @@ let renderCart = (listProducts) =>{
     return '<div class="item"><div class="item-img"><img src="'+i.img+'"></div><div class="item-info"><span class="item-name">'+i.name+'</span><span class="item-price">'+i.price+'</span></div></div>';
   });
   let strHTML = arrProducts.join('');
+  if (strHTML === '') {
+    $('.count-pro').css('display','none');
+  }
   $('.list-product').html(strHTML);
 }
 
@@ -73,6 +76,14 @@ $('.pro-number').on('change', function(){
   let labelPrice = $(this).parent().next().children()[0];
   let price = labelPrice.getAttribute("data-price");
   labelPrice.innerHTML = number * parseInt(price);
+});
+
+$('.btn-delete').on('click', function(){
+  $(this).parent().parent().remove();
+  let id = this.getAttribute("data-id");
+  axios.delete('/api/carts/'+id).then(data => {
+    renderCart(data.data);
+  });
 });
 
 })

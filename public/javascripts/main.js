@@ -68,5 +68,12 @@ $('.btn-addtocart').on('click', function(){
   
 });
 
+$('.pro-number').on('change', function(){
+  let number = this.value;
+  let labelPrice = $(this).parent().next().children()[0];
+  let price = labelPrice.getAttribute("data-price");
+  labelPrice.innerHTML = number * parseInt(price);
+});
+
 })
 (jQuery);

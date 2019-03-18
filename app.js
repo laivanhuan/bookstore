@@ -7,6 +7,7 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index.route');
 const productRouter = require('./routes/product.route');
+const cartRouter = require('./routes/cart.route');
 
 const apiCartRouter = require('./api/routes/cart.route');
 const apiProductRouter = require('./api/routes/product.route');
@@ -33,6 +34,7 @@ app.use(sessionMiddleware);
 
 app.use('/', indexRouter);
 app.use('/products', productRouter);
+app.use('/cart', cartRouter);
 
 app.use('/api/carts', apiCartRouter); 
 app.use('/api/products', apiProductRouter);

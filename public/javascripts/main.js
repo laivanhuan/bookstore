@@ -73,9 +73,11 @@ $('.btn-addtocart').on('click', function(){
 
 $('.pro-number').on('change', function(){
   let number = this.value;
+  let id = this.getAttribute("data-id");
   let labelPrice = $(this).parent().next().children()[0];
   let price = labelPrice.getAttribute("data-price");
   labelPrice.innerHTML = number * parseInt(price);
+  axios.put('/api/carts/'+id+'?value='+number).then(data => {}).catch(error => console.log(error));
 });
 
 $('.btn-delete').on('click', function(){

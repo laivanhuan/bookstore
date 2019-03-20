@@ -25,7 +25,7 @@ block body-content
                       img(src=item.img,style="width:30px;")
                     td= item.name
                     td
-                      input.pro-number(type="number", value="1", style="padding-left: 10px; width: 65px")
+                      input.pro-number(type="number", value="1", style="padding-left: 10px; width: 65px", data-id= item.id)
                     td.label-price
                       p(data-price= item.price)= item.price
                     td
@@ -35,15 +35,15 @@ block body-content
             .form-row
               .form-group.col-md-6
                 label(for='inputEmail') Email
-                input#inputEmail.form-control(type='email', placeholder='Email', required)
+                input#inputEmail.form-control(type='email', placeholder='Email', name='email' required)
               .form-group.col-md-6
                 label(for='inputPhone') Phone
-                input#inputPhone.form-control(type='text', placeholder='Phone', required)
+                input#inputPhone.form-control(type='text', placeholder='Phone', name='phone' required)
             .form-row
               .form-group.col-md-6
                 label(for='inputName') Name
-                input#inputName.form-control(type='text', placeholder='Name', required)
+                input#inputName.form-control(type='text', placeholder='Name', name='name' required)
               .form-group.col-md-6
                 label(for='inputAddress') Address
-                input#inputAddress.form-control(type='text', placeholder='Your address', required)
+                input#inputAddress.form-control(type='text', placeholder='Your address', name='address' required)
             button.btn.btn-primary.mt-3(type='submit') Đặt Hàng

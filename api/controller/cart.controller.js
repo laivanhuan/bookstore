@@ -103,5 +103,44 @@ module.exports = {
                 error: error
             });
         }
+    },
+
+    updateCart: async (req, res, next) =>{
+        try {
+            let sessionId = req.signedCookies.sessionId;
+            let id = req.params.id;
+            let number = req.query.value;
+
+            let cart = await Cart.findAll({
+                where: {
+                    sessionId: sessionId,
+                    productId: id
+                }
+            });
+
+            if(cart.length > 0) {
+                cart.forEach(async (item) => {
+                  await item.update({
+                    countProduct: number ? number : item.countProduct,
+                  });  
+                });
+                res.json({
+                    result: 'ok',
+                    data: cart,
+                    message: "update successfully"
+                });
+            } else {
+                res.json({
+                    result: 'failed',
+                    data: {},
+                    message: "Cannot find to update"
+                });
+            }
+        } catch (error) {
+            res.json({
+                message: 'Failed',
+                error: error
+            });
+        }
     }
 }

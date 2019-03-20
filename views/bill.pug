@@ -1,0 +1,31 @@
+extends layout
+block styles
+  link(rel='stylesheet', type='text/css', href='/stylesheets/font-awesome.min.css')
+  link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+  link(rel='stylesheet', href='/stylesheets/hamburgers.min.css')
+  link(rel='stylesheet', href='/stylesheets/main.css')
+block body-content
+  section(style = "padding-top:120px;margin-bottom:30px;")
+    .container.text-center
+      .alert-success.p-3
+        h3.text-center(style="color: #212529;") HÓA ĐƠN
+        table.table
+          thead
+            tr
+              th(scope='col') Tên sách
+              th(scope='col') Số lượng
+              th(scope='col') Giá
+          tbody
+            each item in bill
+              tr
+                td= item.name
+                td= item.value
+                td= item.price
+            tr
+              td Tổng cộng: 
+              td
+              td= prices
+        p
+          span(style="color: red;") Chúng tôi sẽ liên hệ sớm nhất cho bạn để xác nhận đơn hảng!
+          a(href='/')
+            b Về trang chủ
